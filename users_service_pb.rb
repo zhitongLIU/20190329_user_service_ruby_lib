@@ -7,14 +7,21 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
   add_message "demo.FindUserRequest" do
     optional :id, :int32, 1
   end
+  add_message "demo.AllUserRequest" do
+  end
   add_message "demo.User" do
     optional :id, :int32, 1
     optional :email, :string, 2
     optional :name, :string, 3
   end
+  add_message "demo.AllUserReply" do
+    repeated :users, :message, 1, "demo.User"
+  end
 end
 
 module Demo
   FindUserRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("demo.FindUserRequest").msgclass
+  AllUserRequest = Google::Protobuf::DescriptorPool.generated_pool.lookup("demo.AllUserRequest").msgclass
   User = Google::Protobuf::DescriptorPool.generated_pool.lookup("demo.User").msgclass
+  AllUserReply = Google::Protobuf::DescriptorPool.generated_pool.lookup("demo.AllUserReply").msgclass
 end

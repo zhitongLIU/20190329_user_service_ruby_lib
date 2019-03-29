@@ -15,6 +15,7 @@ module Demo
       self.service_name = 'demo.Users'
 
       rpc :Find, FindUserRequest, User
+      rpc :All, AllUserRequest, AllUserReply
     end
 
     Stub = Service.rpc_stub_class
